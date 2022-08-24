@@ -8,9 +8,7 @@ fabric.api.env.hosts = ['54.82.98.129', '52.207.196.248']
 
 def do_deploy(archive_path):
     """Prototype: def do_deploy(archive_path)"""
-    if os.path.exists(archive_path) is False:
-        return False
-    try:
+    if os.path.exists(archive_path):
         file = archive_path.split("/")[-1]
         rm = file.split(".")[0]
         path = "/data/web_static/releases/"
@@ -32,8 +30,8 @@ def do_deploy(archive_path):
 
         fabric.api.run('ln -s {}{}/ {}'.format(path, rm, path2))
 
+        print("New version deployed!")
+
         return True
 
-    except Exception:
-
-        return False
+    return False
