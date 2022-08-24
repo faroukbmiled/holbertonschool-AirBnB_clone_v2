@@ -32,6 +32,9 @@ def do_deploy(archive_path):
 
         fabric.api.run('ln -fs {}{}/ {}'.format(path, rm, path2))
 
+        print ("New version deployed!")
+        
         return True
+
     except ValueError:
         return False
