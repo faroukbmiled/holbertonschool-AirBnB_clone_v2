@@ -34,7 +34,7 @@ file { $dirs:
   ensure => 'directory'
 } ->
 
-exec { 'chown -R ryuk:ryuk /data':
+exec { 'chown -R ubuntu:ubuntu /data':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 
