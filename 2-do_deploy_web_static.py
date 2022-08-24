@@ -20,7 +20,7 @@ def do_deploy(archive_path):
 
         run('mkdir -p {}{}/'.format(path, rm))
 
-        run('tar -zxf /tmp/{} -C {}{}/'.format(file, path, rm))
+        run('tar -xzf /tmp/{} -C {}{}/'.format(file, path, rm))
 
         run('rm /tmp/{}'.format(file))
 
