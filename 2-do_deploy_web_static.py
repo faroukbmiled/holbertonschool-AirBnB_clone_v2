@@ -2,10 +2,10 @@
 """distributes an archive to your web servers"""
 
 import os.path
-from fabric.api import run, put, env
+from fabric.api import run, put, env ,runs_once
 env.hosts = ['54.82.98.129', '52.207.196.248']
 
-
+@runs_once
 def do_deploy(archive_path):
     """Prototype: def do_deploy(archive_path)"""
     if os.path.exists(archive_path):

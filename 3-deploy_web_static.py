@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """distributes an archive to your web servers"""
 
-from fabric.api import run, put, env, local
+from fabric.api import run, put, env, local, runs_once
 import datetime
 import os.path
 env.hosts = ['54.82.98.129', '52.207.196.248']
@@ -15,7 +15,7 @@ def deploy():
     deploy = do_deploy(file)
     return deploy
 
-
+@runs_once
 def do_pack():
     "Prototype: def do_pack():"
     try:
