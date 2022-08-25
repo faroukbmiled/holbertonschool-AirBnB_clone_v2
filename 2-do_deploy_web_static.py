@@ -2,8 +2,23 @@
 """distributes an archive to your web servers"""
 
 import os.path
-from fabric.api import run, put, env
+import datetime
+from fabric.api import run, put, env, local
 env.hosts = ['54.82.98.129', '52.207.196.248']
+
+
+def do_pack():
+    "Prototype: def do_pack():"
+    try:
+        date_format = "%Y%m%d%H%M%S"
+        date = datetime.datetime.now().strftime(date_format)
+        if os.path.isdir("versions") is False:
+            local("mkdir versions")
+        name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(name))
+        return name
+    except ValueError:
+        return None
 
 
 def do_deploy(archive_path):
