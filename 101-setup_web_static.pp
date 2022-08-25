@@ -38,10 +38,6 @@ exec { 'chown -R ubuntu:ubuntu /data':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 
-exec { 'chown -R root:root /data/web_static/*':
-  path => '/usr/bin/:/usr/local/bin/:/bin/'
-} ->
-
 file { '/data/web_static/releases/test/index.html':
   ensure  => 'present',
   content => $cfg
