@@ -56,6 +56,8 @@ def do_deploy(archive_path):
 
 def deploy():
     """automate every function."""
-    if do_pack() is None:
+    file = do_pack()
+    if file is None:
         return False
-    return do_deploy(do_pack())
+    deploy = do_deploy(file)
+    return deploy
