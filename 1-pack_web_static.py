@@ -15,6 +15,8 @@ def do_pack():
             fabric.api.local("mkdir versions")
         name = "versions/web_static_{}.tgz".format(date)
         fabric.api.local("tar -cvzf {} web_static".format(name))
+        size = os.path.getsize(name)
+        print("web_static packed: {} -> {}Bytes".format(name, size))
         return name
     except ValueError:
         return None
