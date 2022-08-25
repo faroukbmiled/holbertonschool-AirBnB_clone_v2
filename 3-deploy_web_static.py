@@ -5,7 +5,8 @@ from fabric.api import run, put, env, local
 import datetime
 import os.path
 env.hosts = ['54.82.98.129', '52.207.196.248']
-
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/school'
 
 def do_pack():
     "Prototype: def do_pack():"
@@ -56,8 +57,4 @@ def do_deploy(archive_path):
 
 def deploy():
     """automate every function."""
-    file = do_pack()
-    if file is None:
-        return False
-    deploy = do_deploy(file)
-    return deploy
+    return do_deploy(do_pack())
