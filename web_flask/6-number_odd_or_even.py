@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """task 1"""
 from tokenize import Number
 from flask import Flask, render_template
