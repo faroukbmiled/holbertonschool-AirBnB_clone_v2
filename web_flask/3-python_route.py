@@ -19,7 +19,7 @@ def flask_hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def flask_croute(text):
     """/c/<text>"""
-    croute = f'C {text}'.replace('_', ' ')
+    croute = 'C {}'.format(text).replace('_', ' ')
     return croute
 
 

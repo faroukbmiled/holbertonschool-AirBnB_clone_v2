@@ -20,7 +20,7 @@ def flask_hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def flask_croute(text):
     """/c/<text>"""
-    croute = f'C {text}'.replace('_', ' ')
+    croute = 'C {}'.format(text).replace('_', ' ')
     return croute
 
 
@@ -28,7 +28,7 @@ def flask_croute(text):
 @app.route('/python/<text>', strict_slashes=False)
 def flask_py(text="is cool"):
     """display “Python ”, followed by a value..."""
-    pyroute = f'Python {text}'.replace("_", " ")
+    pyroute = 'Python {}'.format(text).replace("_", " ")
     return pyroute
 
 
